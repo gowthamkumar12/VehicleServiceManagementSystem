@@ -1,0 +1,136 @@
+{% load static %}
+{% block body %}
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>EasyGo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+         <link rel="shortcut icon" href="{% static 'user/assets/images/favicon.ico' %}">
+        <!-- App css -->
+        <link href="{% static 'user/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'user/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'user/assets/css/style.css' %}" rel="stylesheet" type="text/css"/>
+        <script src="{% static 'user/assets/js/modernizr.min.js' %}"></script>
+
+    </head>
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+           {% include 'sidebar.html' %}
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+
+                  {% include 'header.html' %}
+
+                <!-- Start Page content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="m-t-0 header-title">Enquiry Form</h4>
+                                    <p class="text-muted m-b-30 font-14">
+
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-20">
+
+                                                <form class="form-horizontal" role="form" method="post" name="submit">
+                                                    {% csrf_token %}
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Enquiry</label>
+                                                        <div class="col-10">
+                                                            <select name='enquirytype' id="enquirytype" class="form-control" required="true">
+                                    <option value="">Enquiry Type</option>
+                                     {% for i in enquirytypes %}
+                                        <option value="{{i.id}}">{{i.enqtypename}}</option>
+                                     {% endfor %}
+                                         </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label" for="example-email">Description</label>
+                                                        <div class="col-10">
+                                                            <textarea name="description" value="description" id="description" rows="12" cols="15" class="form-control"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                     <div class="form-group row">
+
+                                                        <div class="col-12">
+                                                        <p style="text-align: center;">
+                                                            <button type="submit" name="submit" class="btn btn-info btn-min-width mr-1 mb-1">Submit</button>
+                                                        </p>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- end row -->
+
+                                </div> <!-- end card-box -->
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+            {% include 'footer.html' %}
+            </div>
+
+
+
+        </div>
+        <!-- END wrapper -->
+
+
+
+        <!-- jQuery  -->
+        <script src="{% static 'user/assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'user/assets/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'user/assets/js/metisMenu.min.js' %}"></script>
+        <script src="{% static 'user/assets/js/waves.js' %}"></script>
+        <script src="{% static 'user/assets/js/jquery.slimscroll.js' %}"></script>
+        <!-- App js -->
+        <script src="{% static 'user/assets/js/jquery.core.js' %}"></script>
+        <script src="{% static 'user/assets/js/jquery.app.js' %}"></script>
+
+    </body>
+</html>
+
+{% ifequal error "no" %}
+<script>
+    alert("Your enquiry has been sent successfully. Enquiry Number is {{en}}");
+	window.location=('{% url 'enquiry_history' %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong. Please try again');
+</script>
+{% endifequal %}
+
+{% endblock %}

@@ -1,0 +1,182 @@
+{% load static %}
+
+{% block body %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>EasyGo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link href="{% static 'user/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+        <script src="{% static 'user/assets/js/modernizr.min.js' %}"></script>
+<script type="text/javascript">
+  function printdata()
+  {
+    window.print();
+  }
+</script>
+    </head>
+
+
+    <body>
+
+        <!-- Begin page -->
+        <div>
+
+          {% include 'sidebar.html' %}
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+
+                {% include 'header.html' %}
+
+                <!-- Start Page content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="m-t-0 header-title">Service History View</h4>
+                                    <p class="text-muted m-b-30 font-14">
+
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-20">
+
+         <form method="post">
+        {% csrf_token %}
+
+
+<table border="1" class="table table-bordered mg-b-0">
+
+   <tr>
+    <th>Service Request Date</th>
+    <td>{{service.servicereqdate}}</td>
+  </tr>
+<tr>
+    <th>Service Number</th>
+    <td>{{service.serviceno}}</td>
+  </tr>
+
+<tr>
+    <th>Category</th>
+    <td>{{service.category.categoryname}}</td>
+  </tr>
+
+<tr>
+    <th>Vehicle Name</th>
+    <td>{{service.vehiclename}}</td>
+  </tr>
+
+  <tr>
+    <th>Vehicle Model</th>
+    <td>{{service.vehiclemodel}}</td>
+  </tr>
+
+  <tr>
+    <th>Vehicle Brand</th>
+    <td>{{service.vehiclebrand}}</td>
+  </tr>
+  <tr>
+    <th>Vehicle Registration Number</th>
+    <td>{{service.vehicleregno}}</td>
+  </tr>
+  <tr>
+    <th>Service Date</th>
+    <td>{{service.servicedate}}</td>
+  </tr>
+
+<tr>
+    <th>Service Time</th>
+    <td>{{service.servicetime}}</td>
+  </tr>
+
+<tr>
+    <th>Delivery Type</th>
+    <td>{{service.deltype}}</td>
+  </tr>
+
+<tr>
+    <th>Pickup Address</th>
+    <td>{{service.pickupaddr}}</td>
+  </tr>
+
+  <tr>
+    <th>Service Request Date</th>
+    <td>{{service.servicereqdate}}</td>
+  </tr>
+
+
+
+
+
+
+  <tr>
+    <th>Admin Remark</th>
+    <td>{% if service.adminremark == None %}
+  No action taken yet
+{% else %}
+      {{service.adminremark}}
+    {% endif %}</td>
+  </tr>
+
+
+
+  <tr>
+    <th>Admin Remark date</th>
+    <td>
+{% if service.adminremarkdate == None %}
+  No action taken yet
+{% else %}
+     {{service.adminremarkdate}}
+   {% endif %}
+
+  </td>
+  </tr>
+
+  <tr>
+    <th>Service Charge</th>
+    <td> {{service.servicecharge}}</td>
+  </tr>
+  <tr>
+    <th>Parts Charge</th>
+    <td>{{service.partscharge}}</td>
+  </tr>
+<tr>
+    <th>Other Charge(if any)</th>
+    <td>{{service.othercharge}}</td>
+  </tr>
+<tr>
+    <th>Total Amount</th>
+    <td>{{total}}</td>
+  </tr>
+
+
+
+</table>
+<p style="text-align: center;"><button type="text" name='print' id="print" onclick="return printdata();" class="btn btn-info btn-min-width mr-1 mb-1">Print</button></p>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div></div></div></div>
+</body>
+</html>
+{% endblock %}

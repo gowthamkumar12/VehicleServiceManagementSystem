@@ -1,0 +1,150 @@
+{% load static %}
+
+{% block body %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>EasyGo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'admin/assets/images/favicon.ico' %}">
+        <!-- App css -->
+        <link href="{% static 'admin/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+
+        <script src="{% static 'admin/assets/js/modernizr.min.js' %}"></script>
+
+    </head>
+
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+         {% include 'adminsidebar.html' %}
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+
+                {% include 'adminheader.html' %}
+
+                <!-- Start Page content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="m-t-0 header-title">Add EasyGo Mechanics</h4>
+                                    <p class="text-muted m-b-30 font-14">
+
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-20">
+
+                                                <form class="form-horizontal" role="form" method="post" name="submit">
+                                            {% csrf_token %}
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label" for="example-email">Mechanic Name</label>
+                                                        <div class="col-10">
+                                                            <input type="text" id="macname" name="macname" class="form-control"  required="true">
+                                                        </div>
+                                                    </div>
+
+                                                      <div class="form-group row">
+                                                        <label class="col-2 col-form-label" for="example-email">Mechanic Contact Number</label>
+                                                        <div class="col-10">
+                                                            <input type="text" id="mobilenumber" name="mobilenumber" class="form-control" maxlength="10" required="true">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label" for="example-email">Mechanic Email</label>
+                                                        <div class="col-10">
+                                                            <input type="email" id="email" name="email" class="form-control"  required="true">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label" for="example-email">Mechanic Address</label>
+                                                        <div class="col-10">
+                                                            <input type="text" id="macadd" name="macadd" class="form-control"  required="true">
+                                                        </div>
+                                                    </div>
+
+
+           <div class="form-group row">
+
+                                                        <div class="col-12">
+                                                            <p style="text-align: center;"> <button type="submit" name="submit" class="btn btn-info btn-min-width mr-1 mb-1">Add</button></p>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- end row -->
+
+                                </div> <!-- end card-box -->
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <!-- end row -->
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+             {% include 'adminfooter.html' %}
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+        </div>
+        <!-- END wrapper -->
+
+        <!-- jQuery  -->
+        <script src="{% static 'admin/assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/metisMenu.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/waves.js' %}"></script>
+        <script src="{% static 'admin/assets/js/jquery.slimscroll.js' %}"></script>
+        <!-- App js -->
+        <script src="{% static 'admin/assets/js/jquery.core.js' %}"></script>
+        <script src="{% static 'admin/assets/js/jquery.app.js' %}"></script>
+
+    </body>
+</html>
+
+{% ifequal error "no" %}
+<script>
+    alert('Mechanic Details has been added.');
+    window.location=('{% url 'manage_mechanic' %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong. Please try again');
+</script>
+{% endifequal %}
+
+{% endblock %}

@@ -1,0 +1,155 @@
+{% load static %}
+{% block body %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>EasyGo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'user/assets/images/favicon.ico' %}">
+        <!-- App css -->
+        <link href="{% static 'user/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'user/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'user/assets/css/style.css' %}" rel="stylesheet" type="text/css"/>
+        <script src="{% static 'user/assets/js/modernizr.min.js' %}"></script>
+
+        <script type="text/javascript">
+function checkpass()
+{
+if(document.signup.password.value!=document.signup.repeatpassword.value)
+{
+alert('Password and Repeat Password field does not match');
+document.signup.repeatpassword.focus();
+return false;
+}
+return true;
+}
+
+</script>
+
+    </head>
+
+
+    <body class="account-pages">
+
+        <!-- Begin page -->
+        <div class="accountbg" style="background: url('{% static 'user/assets/images/bg-2.jpg' %}');background-position: center; height: 750px;"></div>
+
+        <div class="wrapper-page account-page-full">
+
+            <div class="card">
+                <div class="card-block">
+
+                    <div class="account-box">
+
+                        <div class="card-box p-5">
+                            <h3 class="text-uppercase text-center pb-4">
+                                <a href="{% url 'index' %}" class="text-success">
+                                    <span>EasyGo || Sign Up</span>
+                                </a>
+                            </h3>
+
+
+                            <form class="form-horizontal" action="" name="signup" method="post" onsubmit="return checkpass();">
+                             {% csrf_token %}
+                                <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <label for="username">Full Name</label>
+                                        <input class="form-control" type="text" id="fullname"name="fullname" required="" placeholder="Enter Your Full Name">
+                                    </div>
+                                </div>
+
+                                 <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <label for="username">Mobile Number</label>
+                                        <input class="form-control" type="text" id="mobilenumber" name="mobilenumber" required="" placeholder="Enter Your Mobile Number" maxlength="10" pattern="[0-9]+">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <label for="emailaddress">Email address</label>
+                                        <input class="form-control" type="email" id="email" name="email" required="" placeholder="abc@gmail.com">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <label for="password">Password</label>
+                                        <input class="form-control" type="password" required="" id="password" name="password" placeholder="Enter your password">
+                                    </div>
+                                </div>
+                                 <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <label for="password">Repeat Password</label>
+                                        <input class="form-control" type="password" required="" id="repeatpassword" name="repeatpassword" placeholder="Enter your password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <div class="checkbox checkbox-custom">
+                                            <input id="remember" type="checkbox" checked="">
+                                            <label for="remember">
+                                                I accept <a href="{% url 'termsandcondition' %}" class="text-custom">Terms and Conditions</a>
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row text-center m-t-10">
+                                    <div class="col-12">
+                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" name="submit">Sign Up Free</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                            <div class="row m-t-50">
+                                <div class="col-sm-12 text-center">
+                                    <p class="text-muted">Already have an account?  <a href="{% url 'user_login' %}" class="text-dark m-l-5"><b>Sign In</b></a></p>
+                                </div>
+                            </div>
+
+                            <div class="m-t-40 text-center">
+                <p class="account-copyright">2020 © EasyGo</p>
+            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- jQuery  -->
+        <script src="{% static 'user/assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'user/assets/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'user/assets/js/metisMenu.min.js' %}"></script>
+        <script src="{% static 'user/assets/js/waves.js' %}"></script>
+        <script src="{% static 'user/assets/js/jquery.slimscroll.js' %}"></script>
+        <!-- App js -->
+        <script src="{% static 'user/assets/js/jquery.core.js' %}"></script>
+        <script src="{% static 'user/assets/js/jquery.app.js' %}"></script>
+
+    </body>
+</html>
+{% ifequal error "no" %}
+<script>
+    alert('logged in successfully');
+    window.location=('{% url 'user_login' %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Invalid Login Credentials,Try Again...');
+</script>
+{% endifequal %}
+{% endblock %}

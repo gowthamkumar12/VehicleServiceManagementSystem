@@ -1,0 +1,115 @@
+{% load static %}
+
+{% block body %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Vehicle Service Managment System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App css -->
+        <link href="{% static 'user/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+        <script src="{% static 'user/assets/js/modernizr.min.js' %}"></script>
+<script type="text/javascript">
+  function printdata()
+  {
+    window.print();
+  }
+</script>
+    </head>
+
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+           {% include 'sidebar.html' %}
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+
+               {% include 'header.html' %}
+
+                <!-- Start Page content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="m-t-0 header-title">Enquiry History View</h4>
+                                    <p class="text-muted m-b-30 font-14">
+
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-20">
+
+         <form method="post">
+        {% csrf_token %}
+
+
+<table border="1" class="table table-bordered mg-b-0">
+
+   <tr>
+    <th>Enquiry Date</th>
+    <td>{{enquiry.enqdate}}</td>
+  </tr>
+<tr>
+    <th>Enquiry Number</th>
+    <td>{{enquiry.enqno}}</td>
+  </tr>
+
+<tr>
+    <th>Enquiry Type</th>
+    <td>{{enquiry.enqtype.enqtypename}}</td>
+  </tr>
+
+<tr>
+    <th>Description</th>
+    <td>{{enquiry.description}}</td>
+  </tr>
+
+
+  <tr>
+    <th>Admin Response</th>
+    <td> {% if enquiry.adminresponse == None %}
+  No action taken yet
+ {% else %}
+      enquiry.adminresponse
+     {% endif  %}
+    </td>
+  </tr>
+
+
+
+
+</table>
+
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div></div></div></div>
+</body>
+</html>
+
+{% endblock %}

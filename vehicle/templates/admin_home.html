@@ -1,0 +1,223 @@
+{% load static %}
+
+{% block body %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>EasyGo|| Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'admin/assets/images/favicon.ico' %}">
+
+        <!-- App css -->
+        <link href="{% static 'admin/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+
+        <script src="{% static 'admin/assets/js/modernizr.min.js' %}"></script>
+
+    </head>
+
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+
+
+ {% include 'adminsidebar.html' %}
+
+
+            <div class="content-page">
+ {% include 'adminheader.html' %}
+
+
+                <!-- Start Page content -->
+
+                <div class="content">
+
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="header-title mb-4">Account Overview</h4>
+
+                                    <div class="row">
+                                        <div class="col-sm-6 col-lg-6 col-xl-3">
+                                            <div class="card-box mb-0 widget-chart-two">
+                                                <div class="float-right">
+
+                                                    <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#0acf97" value="{{usercount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+
+                                                    <p class="text-muted mb-0 mt-2">Total Registered User</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-lg-6 col-xl-3">
+                                            <div class="card-box mb-0 widget-chart-two">
+                                                <div class="float-right">
+
+                                                    <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#f9bc0b" value="{{enquirycount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+                                                    <p class="text-muted mb-0 mt-2">Total Enquiry</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+<div class="col-sm-6 col-lg-6 col-xl-3">
+<div class="card-box mb-0 widget-chart-two">
+<div class="float-right">
+
+                                                    <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#f1556c" value="{{mechaniccount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+                                                    <p class="text-muted mb-0 mt-2">Total Mechanics</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-lg-6 col-xl-3">
+                                            <div class="card-box mb-0 widget-chart-two">
+                                                <div class="float-right">
+
+                                                    <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#2d7bf4" value="{{servicecount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+                                                    <p class="text-muted mb-0 mt-2">Total Service Requests</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- end row -->
+
+   <div class="row">
+
+                                        <div class="col-sm-6 col-lg-6 col-xl-3">
+                                            <div class="card-box mb-0 widget-chart-two">
+                                                <div class="float-right">
+
+                                                    <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#2d7bf4" value="{{nservicecount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+                                                    <p class="text-muted mb-0 mt-2">New Service Requests</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+<div class="col-sm-6 col-lg-6 col-xl-3">
+<div class="card-box mb-0 widget-chart-two">
+<div class="float-right">
+
+                                                    <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#f1556c" value="{{rservicecount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+                                                    <p class="text-muted mb-0 mt-2">Rejected Service Requests</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+<div class="col-sm-6 col-lg-6 col-xl-3">
+                                            <div class="card-box mb-0 widget-chart-two">
+                                                <div class="float-right">
+
+                                                <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#0acf97" value="{{cservicecount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+
+                                                    <p class="text-muted mb-0 mt-2">Completed Services </p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                {% include 'adminfooter.html' %}
+            </div>
+
+        </div>
+        <!-- END wrapper -->
+
+        <!-- jQuery  -->
+        <script src="{% static 'admin/assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/metisMenu.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/waves.js' %}"></script>
+        <script src="{% static 'admin/assets/js/jquery.slimscroll.js' %}"></script>
+
+        <!-- Flot chart -->
+        <script src="{% static 'admin/plugins/flot-chart/jquery.flot.min.js' %}"></script>
+        <script src="{% static 'admin/plugins/flot-chart/jquery.flot.time.js' %}"></script>
+        <script src="{% static 'admin/plugins/flot-chart/jquery.flot.tooltip.min.js' %}"></script>
+        <script src="{% static 'admin/plugins/flot-chart/jquery.flot.resize.js' %}"></script>
+        <script src="{% static 'admin/plugins/flot-chart/jquery.flot.pie.js' %}"></script>
+        <script src="{% static 'admin/plugins/flot-chart/jquery.flot.crosshair.js' %}"></script>
+        <script src="{% static 'admin/plugins/flot-chart/curvedLines.js' %}"></script>
+        <script src="{% static 'admin/plugins/flot-chart/jquery.flot.axislabels.js' %}"></script>
+
+
+        <script type="text/javascript" src="{% static 'admin/plugins/jquery-knob/excanvas.js' %}"></script>
+        <![endif]-->
+        <script src="{% static 'admin/plugins/jquery-knob/jquery.knob.js' %}"></script>
+
+        <!-- Dashboard Init -->
+        <script src="{% static 'admin/assets/pages/jquery.dashboard.init.js' %}"></script>
+
+        <!-- App js -->
+        <script src="{% static 'admin/assets/js/jquery.core.js' %}"></script>
+        <script src="{% static 'admin/assets/js/jquery.app.js' %}"></script>
+
+    </body>
+</html>
+{% endblock %}

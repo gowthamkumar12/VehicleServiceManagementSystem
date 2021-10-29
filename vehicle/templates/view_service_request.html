@@ -1,0 +1,214 @@
+{% load static %}
+
+{% block body %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>EasyGo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+       <link rel="shortcut icon" href="{% static 'admin/assets/images/favicon.ico' %}">
+        <!-- App css -->
+        <link href="{% static 'admin/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+        <script src="{% static 'admin/assets/js/modernizr.min.js' %}"></script>
+
+    </head>
+
+
+    <body>
+
+        <!-- Begin page -->
+        <div >
+
+          {% include 'adminsidebar.html' %}
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+
+                  {% include 'adminheader.html' %}
+
+                <!-- Start Page content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="m-t-0 header-title">View Services</h4>
+                                    <p class="text-muted m-b-30 font-14">
+
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-20">
+
+
+
+
+
+
+<table border="1" class="table table-bordered mg-b-0">
+<tr>
+    <th>Service Number</th>
+    <td>{{service.serviceno}}</td>
+  </tr>
+  <tr>
+<th>Full Name</th>
+    <td>{{service.userid.first_name}}</td>
+  </tr>
+
+<tr>
+    <th>Vehicle Category</th>
+    <td>{{service.category.categoryname}}</td>
+  </tr>
+   <tr>
+    <th>Vehicle Name</th>
+    <td>{{service.vehiclename}}</td>
+  </tr>
+
+<tr>
+    <th>Vehicle Model</th>
+    <td>{{service.vehiclemodel}}</td>
+  </tr>
+
+  <tr>
+    <th>Vehicle Brand</th>
+    <td>{{service.vehiclebrand}}</td>
+  </tr>
+  <tr>
+    <th>Vehicle Registration Number</th>
+    <td>{{service.vehicleregno}}</td>
+  </tr>
+  <tr>
+    <th>Service Date</th>
+    <td>{{service.servicedate}}</td>
+  </tr>
+  <tr>
+    <th>Service Time</th>
+    <td>{{service.servicetime}}</td>
+  </tr>
+  <tr>
+    <th>Delivery Type</th>
+    <td>{{service.deltype}}</td>
+  </tr>
+<tr>
+  <th>Pickup Address</th>
+  <td>{{service.pickupaddr}}</td>
+</tr>
+<tr>
+  <th>Service Request Date</th>
+  <td>{{service.servicedate}}</td>
+</tr>
+<tr>
+    <th>Admin Status</th>
+    <td> {% if service.adminstatus == "Accept" %}
+            Selected
+        {% endif %}
+
+{% if service.adminstatus == "Reject" %}
+        Rejected
+{% endif %}
+
+{% if service.adminstatus == None %}
+  Wait for admin approval
+{% endif %}
+
+    </td>
+  </tr>
+</table>
+
+
+
+
+<table class="table mb-0">
+
+{% if service.adminstatus == None %}
+<form name="submit" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+  <tr>
+    <th>Admin Status :</th>
+    <td>
+   <select name="status" class="form-control wd-450" required="true" >
+     <option value="Accept" selected="true">Selected</option>
+     <option value="Reject">Cancelled</option>
+   </select></td>
+  </tr>
+    <tr align="center">
+    <td colspan="2"><button type="submit" name="submit" class="btn btn-primary pd-x-20">Service Completed</button></td>
+  </tr>
+</form>
+ {% endif %}
+
+
+</table>
+
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- end row -->
+
+                                </div> <!-- end card-box -->
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <!-- end row -->
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+             {% include 'adminfooter.html' %}
+            </div>
+
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+
+
+        <!-- jQuery  -->
+         <script src="{% static 'admin/assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/metisMenu.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/waves.js' %}"></script>
+        <script src="{% static 'admin/assets/js/jquery.slimscroll.js' %}"></script>
+        <!-- App js -->
+        <script src="{% static 'admin/assets/js/jquery.core.js' %}"></script>
+        <script src="{% static 'admin/assets/js/jquery.app.js' %}"></script>
+
+    </body>
+</html>
+{% ifequal error "no" %}
+<script>
+    alert('Status has been updated');
+    window.location=('{% url 'view_service_request' service.id %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong. Please try again');
+</script>
+{% endifequal %}
+
+{% endblock %}

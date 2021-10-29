@@ -1,0 +1,117 @@
+{% load static %}
+{% block body %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>EasyGo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'user/assets/images/favicon.ico' %}">
+        <!-- App css -->
+        <link href="{% static 'user/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'user/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'user/assets/css/style.css' %}" rel="stylesheet" type="text/css"/>
+        <script src="{% static 'user/assets/js/modernizr.min.js' %}"></script>
+
+    </head>
+
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+          {% include 'sidebar.html' %}
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+
+                {% include 'header.html' %}
+
+                <!-- Start Page content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="m-t-0 header-title">Enquiry History</h4>
+                                    <p class="text-muted m-b-30 font-14">
+
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-20">
+
+<table class="table table-bordered mg-b-0">
+              <thead>
+                <tr>
+                  <th>S.NO</th>
+                  <th>Enquiry Number</th>
+                                   <th>Enquiry Date</th>
+                   <th>Action</th>
+                </tr>
+              </thead>
+              {% for i in enquiry %}
+              <tbody>
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                       <td>{{i.enqno}}</td>
+                                    <td>{{i.enqdate}}</td>
+
+                  <td><a href="{% url 'enquiry_view' i.id %}">View Detail</a>
+                </tr>
+                 {% endfor %}
+
+              </tbody>
+            </table>
+
+                                            </div>
+
+                                </div> <!-- end card-box -->
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+             {% include 'footer.html' %}
+            </div>
+
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+</div>
+</div>
+
+        <!-- jQuery  -->
+       <script src="{% static 'admin/assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/metisMenu.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/waves.js' %}"></script>
+        <script src="{% static 'admin/assets/js/jquery.slimscroll.js' %}"></script>
+        <!-- App js -->
+        <script src="{% static 'admin/assets/js/jquery.core.js' %}"></script>
+        <script src="{% static 'admin/assets/js/jquery.app.js' %}"></script>
+
+    </body>
+</html>
+{% endblock %}

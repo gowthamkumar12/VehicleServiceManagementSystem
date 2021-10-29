@@ -1,0 +1,123 @@
+{% load static %}
+<!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+
+                <div class="slimscroll-menu" id="remove-scroll">
+
+                    <!-- LOGO -->
+                    <div class="topbar-left">
+                       <h3>EasyGo | Admin  </h3>
+                       <hr />                    </div>
+
+                    <!-- User box -->
+                    <center><div class="user-box">
+                        <div class="user-img">
+                            <img src="{% static 'admin/assets/images/user.png' %}" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
+                        </div>
+
+
+                        <h5 style = "text-transform : capitalize">{{request.user.username}}</a> </h5>
+                        <p class="text-muted">EasyGo Admin</p>
+                    </div></center>
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+
+                        <ul class="metismenu" id="side-menu">
+
+                            <!--<li class="menu-title">Navigation</li>-->
+
+                            <li>
+                                <a href="{% url 'admin_home' %}">
+                                    <i class="fi-air-play"></i><span class="badge badge-danger badge-pill float-right"></span> <span> Dashboard </span>
+                                </a>
+                            </li>
+
+
+
+                            <li>
+                                <a href="javascript: void(0);"><i class="fi-layers"></i><span> Mechanics </span> <span class="menu-arrow"></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="{% url 'add_mechanic' %}">Add Mechanics</a></li>
+                                    <li><a href="{% url 'manage_mechanic' %}">Manage Mechanics</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);"><i class="fi-layers"></i><span> Vehicle Category </span> <span class="menu-arrow"></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="{% url 'add_category' %}">Add Category</a></li>
+                                    <li><a href="{% url 'manage_category' %}">Manage Category</a></li>
+                                </ul>
+                            </li>
+
+              <li>
+                  <a href="javascript: void(0);"><i class="fi-layers"></i><span> Enquiry Type </span> <span class="menu-arrow"></span></a>
+                  <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="{% url 'add_enquirytype' %}">Add Enquiry Type</a></li>
+                                    <li><a href="{% url 'view_enquirytype' %}">Manage Enquiry Type</a></li>
+                                </ul>
+                            </li>
+
+
+
+                            <li>
+                                <a href="{% url 'reg_users' %}">
+                                  <i class="icon-people"></i> <span> Register Users </span>
+                                </a>
+                            </li>
+
+
+<li>
+<a href="javascript: void(0);"><i class="fi-paper"></i><span> Service Request </span> <span class="menu-arrow"></span></a>
+<ul class="nav-second-level" aria-expanded="false">
+<li><a href="{% url 'pending_service' %}"> New </a></li>
+<li><a href="{% url 'rejected_services' %}">Rejected</a></li>
+</ul>
+</li>
+<li>
+<a href="javascript: void(0);"><i class="fi-paper"></i><span> Servicing </span> <span class="menu-arrow"></span></a>
+<ul class="nav-second-level" aria-expanded="false">
+<li><a href="{% url 'pending_servicing' %}"> Pending</a></li>
+<li><a href="{% url 'completed_service' %}"> Completed </a></li>
+</ul>
+</li>
+<li>
+                                <a href="javascript: void(0);"><i class="fi-paper"></i><span> Customer Enquiry </span> <span class="menu-arrow"></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="{% url 'notrespond_enquiry' %}"> Not Respond Enquiry</a></li>
+
+                                     <li><a href="{% url 'respond_enquiry' %}"> Respond Enquiry </a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'search_enquiry' %}">
+                                    <i class="fi-air-play"></i><span class="badge badge-danger badge-pill float-right"></span> <span> Enquiry Search </span>
+                                </a>
+                            </li>
+
+                             <li>
+                                <a href="{% url 'search_service' %}">
+                                    <i class="fi-air-play"></i><span class="badge badge-danger badge-pill float-right"></span> <span> Service Search </span>
+                                </a>
+                            </li>
+
+
+
+
+
+
+                        </ul>
+
+                    </div>
+                    <!-- Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+

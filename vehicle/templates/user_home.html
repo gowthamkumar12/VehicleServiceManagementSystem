@@ -1,0 +1,152 @@
+{% load static %}
+
+{% block body %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>EasyGo</title>
+        <!-- App favicon -->
+        <link href="{% static 'user/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/metismenu.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'user/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+        <script src="{% static 'user/assets/js/modernizr.min.js' %}"></script>
+
+    </head>
+    <body>
+
+     <div id="wrapper">
+
+          {% include 'sidebar.html' %}
+            <div class="content-page">
+                 {% include 'header.html' %}
+
+                <div class="content">
+
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="header-title mb-4">Welcome Back to EasyGo User panel !</h4>
+
+                                    <div class="row">
+
+                    <div class="col-sm-6 col-lg-6 col-xl-3">
+                        <div class="card-box mb-0 widget-chart-two">
+                            <div class="float-right">
+
+                                <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                       data-fgColor="#2d7bf4" value="{{servicecount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+                                                    <p class="text-muted mb-0 mt-2">Total Service Requests</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+         <div class="col-sm-6 col-lg-6 col-xl-3">
+                                            <div class="card-box mb-0 widget-chart-two">
+                                                <div class="float-right">
+
+                                                    <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#2d7bf4" value="{{nservicecount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+                                                    <p class="text-muted mb-0 mt-2">New Service Requests</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+<div class="col-sm-6 col-lg-6 col-xl-3">
+<div class="card-box mb-0 widget-chart-two">
+<div class="float-right">
+
+                                                    <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#f1556c" value="{{rservicecount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+                                                    <p class="text-muted mb-0 mt-2">Rejected Service Requests</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+<div class="col-sm-6 col-lg-6 col-xl-3">
+                                            <div class="card-box mb-0 widget-chart-two">
+                                                <div class="float-right">
+
+                                                <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
+                                                           data-fgColor="#0acf97" value="{{cservicecount}}" data-skin="tron" data-angleOffset="180"
+                                                           data-readOnly=true data-thickness=".2"/>
+                                                </div>
+                                                <div class="widget-chart-two-content">
+
+                                                    <p class="text-muted mb-0 mt-2">Completed Services </p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <!-- end row -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+              {% include 'footer.html' %}
+            </div>
+
+
+        </div>
+
+        <!-- jQuery  -->
+       <script src="{% static 'user/assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'user/assets/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'user/assets/js/metisMenu.min.js' %}"></script>
+        <script src="{% static 'user/assets/js/waves.js' %}"></script>
+        <script src="{% static 'user/assets/js/jquery.slimscroll.js' %}"></script>
+
+        <script src="{% static 'user/plugins/flot-chart/jquery.flot.min.js' %}"></script>
+        <script src="{% static 'user/plugins/flot-chart/jquery.flot.time.js' %}"></script>
+        <script src="{% static 'user/plugins/flot-chart/jquery.flot.tooltip.min.js' %}"></script>
+        <script src="{% static 'user/plugins/flot-chart/jquery.flot.resize.js' %}"></script>
+        <script src="{% static 'user/plugins/flot-chart/jquery.flot.pie.js' %}"></script>
+        <script src="{% static 'user/plugins/flot-chart/jquery.flot.crosshair.js' %}"></script>
+        <script src="{% static 'user/plugins/flot-chart/curvedLines.js' %}"></script>
+        <script src="{% static 'user/plugins/flot-chart/jquery.flot.axislabels.js' %}"></script>
+
+        <!-- KNOB JS -->
+        <!--[if IE]>
+        <script type="text/javascript" src="{% static 'user/plugins/jquery-knob/excanvas.js' %}"></script>
+        <![endif]-->
+        <script src="{% static 'user/plugins/jquery-knob/jquery.knob.js' %}"></script>
+        <!-- Dashboard Init -->
+        <script src="{% static 'user/assets/pages/jquery.dashboard.init.js' %}"></script>
+        <!-- App js -->
+        <script src="{% static 'user/assets/js/jquery.core.js' %}"></script>
+        <script src="{% static 'user/assets/js/jquery.app.js' %}"></script>
+
+    </body>
+</html>
+{% endblock %}
